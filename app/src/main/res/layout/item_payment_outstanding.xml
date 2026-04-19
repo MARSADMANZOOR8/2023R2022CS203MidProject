@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvOfficerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jane Smith"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvOutstandingAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="₹1050"
+            android:textColor="@color/error_red"
+            android:textStyle="bold"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvOfficerDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvOfficerName"
+            android:text="Total Sales: ₹2050 | Paid: ₹1000"
+            android:textSize="10sp"
+            android:textColor="@color/text_secondary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvOutstandingAmount"
+            android:layout_alignParentEnd="true"
+            android:background="#FFE0E0"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:text="Due"
+            android:textColor="@color/error_red"
+            android:textSize="9sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

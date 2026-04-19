@@ -27,6 +27,12 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".InventoryActivity" />
         <activity android:name=".AddProductActivity" />
+        <activity android:name=".SalesActivity" />
+        <activity android:name=".CreateSaleActivity"
+            android:theme="@style/Theme.App.Dialog"/>
+        <activity android:name=".PaymentsActivity" />
+        <activity android:name=".RecordPaymentActivity"
+            android:theme="@style/Theme.App.Dialog" />
 
     </application>
 

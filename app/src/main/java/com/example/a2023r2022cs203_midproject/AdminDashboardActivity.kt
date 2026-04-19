@@ -57,10 +57,10 @@ class AdminDashboardActivity : AppCompatActivity(), NavigationView.OnNavigationI
             startActivity(Intent(this, InventoryActivity::class.java))
         }
         findViewById<CardView>(R.id.cardSales).setOnClickListener {
-            Toast.makeText(this, "Sales module coming soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, SalesActivity::class.java))
         }
         findViewById<CardView>(R.id.cardCustomers).setOnClickListener {
-            Toast.makeText(this, "Customers module coming soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PaymentsActivity::class.java))
         }
         findViewById<CardView>(R.id.cardReports).setOnClickListener {
             Toast.makeText(this, "Reports module coming soon", Toast.LENGTH_SHORT).show()
@@ -76,10 +76,10 @@ class AdminDashboardActivity : AppCompatActivity(), NavigationView.OnNavigationI
                 startActivity(Intent(this, InventoryActivity::class.java))
             }
             R.id.nav_sales -> {
-                Toast.makeText(this, "Sales module coming soon", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, SalesActivity::class.java))
             }
             R.id.nav_payments -> {
-                Toast.makeText(this, "Payments module coming soon", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, PaymentsActivity::class.java))
             }
             R.id.nav_customers -> {
                 Toast.makeText(this, "Customers module coming soon", Toast.LENGTH_SHORT).show()

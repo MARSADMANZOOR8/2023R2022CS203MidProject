@@ -303,7 +303,7 @@
                             android:id="@+id/itemName1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Office Chair"
+                            android:text="Deltamethrin"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <TextView
@@ -339,7 +339,7 @@
                             android:id="@+id/itemName2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Wireless Mouse"
+                            android:text="Glyphosate"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <TextView
@@ -385,7 +385,7 @@
                             android:id="@+id/itemName3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Laptop Stand"
+                            android:text="Chlorpyrifos"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <TextView
@@ -421,7 +421,7 @@
                             android:id="@+id/itemName4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="USB Cable"
+                            android:text="Malathion"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <TextView
@@ -457,7 +457,7 @@
                             android:id="@+id/itemName5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Keyboard"
+                            android:text="Neem Oil"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <TextView

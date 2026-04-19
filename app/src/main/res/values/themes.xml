@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme._2023R2022CS203MidProject" parent="Base.Theme._2023R2022CS203MidProject" />
+
+    <style name="Theme.App.Dialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 </resources>
