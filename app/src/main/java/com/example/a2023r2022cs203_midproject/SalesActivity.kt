@@ -6,9 +6,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SalesActivity : AppCompatActivity() {
 
@@ -19,12 +22,48 @@ class SalesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sales)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Sales"
+
         setupRecyclerView()
         setupSearch()
+        setupBottomNavigation()
         loadSampleData()
 
         findViewById<Button>(R.id.btnNewSale).setOnClickListener {
             startActivity(Intent(this, CreateSaleActivity::class.java))
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_sales
+        
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> {
+                    startActivity(Intent(this, AdminDashboardActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_inventory -> {
+                    startActivity(Intent(this, InventoryActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_sales -> true
+                R.id.nav_payments -> {
+                    startActivity(Intent(this, PaymentsActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_reports -> {
+                    Toast.makeText(this, "Reports module coming soon", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 

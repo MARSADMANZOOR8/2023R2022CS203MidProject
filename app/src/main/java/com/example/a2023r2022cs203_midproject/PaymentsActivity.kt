@@ -2,9 +2,12 @@ package com.example.a2023r2022cs203_midproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
 class PaymentsActivity : AppCompatActivity() {
@@ -13,10 +16,46 @@ class PaymentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payments)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Payments"
+
         setupRecyclerViews()
+        setupBottomNavigation()
 
         findViewById<MaterialButton>(R.id.btnRecordPayment).setOnClickListener {
             startActivity(Intent(this, RecordPaymentActivity::class.java))
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_payments
+        
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> {
+                    startActivity(Intent(this, AdminDashboardActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_inventory -> {
+                    startActivity(Intent(this, InventoryActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_sales -> {
+                    startActivity(Intent(this, SalesActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_payments -> true
+                R.id.nav_reports -> {
+                    Toast.makeText(this, "Reports module coming soon", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
@@ -39,9 +78,5 @@ class PaymentsActivity : AppCompatActivity() {
         val rvRecent = findViewById<RecyclerView>(R.id.rvRecentPayments)
         rvRecent.layoutManager = LinearLayoutManager(this)
         rvRecent.adapter = RecentPaymentAdapter(recent)
-
-        val rvQuick = findViewById<RecyclerView>(R.id.rvQuickPayments)
-        rvQuick.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvQuick.adapter = QuickPaymentAdapter(outstanding)
     }
 }

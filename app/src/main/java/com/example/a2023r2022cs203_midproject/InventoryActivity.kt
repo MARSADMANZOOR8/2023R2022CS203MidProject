@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.tabs.TabLayout
 
@@ -27,12 +28,12 @@ class InventoryActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        supportActionBar?.title = "Inventory"
 
         setupRecyclerView()
         setupSearch()
         setupTabs()
+        setupBottomNavigation()
         loadDummyData()
 
         findViewById<ExtendedFloatingActionButton>(R.id.fabAddProduct).setOnClickListener {
@@ -42,6 +43,37 @@ class InventoryActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnBulkUpdate).setOnClickListener {
             Toast.makeText(this, "Bulk Update feature coming soon", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_inventory
+        
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> {
+                    startActivity(Intent(this, AdminDashboardActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_inventory -> true
+                R.id.nav_sales -> {
+                    startActivity(Intent(this, SalesActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_payments -> {
+                    startActivity(Intent(this, PaymentsActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_reports -> {
+                    Toast.makeText(this, "Reports module coming soon", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
