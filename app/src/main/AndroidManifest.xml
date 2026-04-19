@@ -25,6 +25,8 @@
         <activity android:name=".AdminDashboardActivity" />
         <activity android:name=".SalesOfficerDashboardActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".InventoryActivity" />
+        <activity android:name=".AddProductActivity" />
 
     </application>
 
